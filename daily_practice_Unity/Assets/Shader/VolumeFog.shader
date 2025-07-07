@@ -35,7 +35,8 @@ Shader "Study/VolumeFog"
             #pragma fragment frag
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
-            //抄来的函数
+
+            //计算光线与物体包围盒的交点
             float2 rayBoxDst(float3 boundsMin, float3 boundsMax, float3 rayOrigin, float3 rayDir)
             {
                 float3 inv = 1.0 / rayDir;
@@ -95,21 +96,22 @@ Shader "Study/VolumeFog"
                 UNITY_SETUP_INSTANCE_ID(IN);
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(IN);
 
-                // 软粒子深度
+                //软粒子
                 float2 uv = IN.projPos.xy / IN.projPos.w;
                 float sceneD = LinearEyeDepth(SampleSceneDepth(uv), _ZBufferParams);
                 float curD = -mul(UNITY_MATRIX_V, float4(IN.posWS, 1)).z;
                 float softF = saturate((sceneD - curD) / _SoftParticleRange);
-
-                // 体积步进
-                float3 roOS = mul(unity_WorldToObject, float4(_WorldSpaceCameraPos, 1)).xyz;
-                float3 rdOS = normalize(mul((float3x3)unity_WorldToObject, normalize(IN.posWS - _WorldSpaceCameraPos)));
-                float2 bi = rayBoxDst(float3(-0.5, -0.5, -0.5), float3(0.5, 0.5, 0.5), roOS, rdOS);
+                /////////////////////////////////////////////////////////
+                float3 roOS = mul(unity_WorldToObject, float4(_WorldSpaceCameraPos, 1)).xyz; //相机位置在物体局部空间中的坐标
+                float3 rdOS = normalize(mul((float3x3)unity_WorldToObject, normalize(IN.posWS - _WorldSpaceCameraPos))); //射线方向在物体局部空间中的向量
+                float2 bi = rayBoxDst(float3(-0.5, -0.5, -0.5), float3(0.5, 0.5, 0.5), roOS, rdOS); //射线与边界框的相交信息
                 float toB = bi.x, inB = bi.y;
                 float lim = max(min(sceneD - toB, inB), 0);
                 float totD = 0, trav = 0;
                 float step = inB / _StepCount;
-
+                /////////////////////////////////////////////////////////
+                
+                //raymarch
                 for (int i = 0; i < _StepCount; i++)
                 {
                     if (trav < lim)
@@ -123,14 +125,14 @@ Shader "Study/VolumeFog"
                     }
                     trav += step;
                 }
-
+                /////////////////////////////////////////////////////////
                 totD *= softF;
 
-
+                //摄像机淡入淡出
                 float dist = length(_WorldSpaceCameraPos - IN.posWS);
                 float fadeF = 1 - saturate((dist - _FadeStart) / (_FadeEnd - _FadeStart));
                 float a = (1 - exp(-totD)) * fadeF;
-
+                /////////////////////////////////////////////////////////
                 half4 col = _Color;
                 col.a = a;
                 return col;

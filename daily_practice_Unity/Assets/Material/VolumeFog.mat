@@ -108,8 +108,8 @@ Material:
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SoftParticleRange: 4.41
-    - _Softness: 0.2
+    - _SoftParticleRange: 4
+    - _Softness: 0.3
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
