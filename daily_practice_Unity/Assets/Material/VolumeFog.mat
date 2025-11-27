@@ -93,14 +93,16 @@ Material:
     - _Density: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DistanceFactor: 0.0208
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FadeEnd: 0.1
-    - _FadeStart: 5
+    - _FadeEnd: 0
+    - _FadeStart: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _InsideDensity: 0.05
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -108,8 +110,8 @@ Material:
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SoftParticleRange: 4
-    - _Softness: 0.3
+    - _SoftParticleRange: 1
+    - _Softness: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1

@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Unlit_FogTest
+  m_Shader: {fileID: 4800000, guid: c9d2949f1a964874a8d20c0289ca7e84, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - USE_NOISE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MotionVectorsTexArray:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 9e45a448a78cb00459924f8da3b55077, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - USE_NOISE: 1
+    - _AddPrecomputedVelocity: 1
+    - _AlphaCutoff: 0.138
+    - _AlphaCutoffEnable: 0
+    - _AlphaDstBlend: 0
+    - _AlphaSrcBlend: 1
+    - _BlendMode: 0
+    - _ClipDepth: 1
+    - _ClipDistance: 1000
+    - _CullMode: 0
+    - _CullModeForward: 2
+    - _DepthFade: 0.5
+    - _DisableSRP: 0
+    - _DistortionEnable: 1
+    - _DistortionOnly: 1
+    - _DoubleSidedEnable: 0
+    - _DoubleSidedGIMode: 0
+    - _DoubleSidedNormalMode: 2
+    - _DstBlend: 0
+    - _EnableCamFade: 0
+    - _EnableFogOnTransparent: 1
+    - _FadeDistance: 1
+    - _FadeLength: 1
+    - _FogDensity: 0.969
+    - _NoJitter: 0
+    - _NoTAA: 0
+    - _NoiseMin: 0.5
+    - _OpaqueCullMode: 2
+    - _PrecomputedMotionVectors: 0
+    - _Radius: 0.5
+    - _ReceivesSSR: 1
+    - _ReceivesSSRTransparent: 0
+    - _RenderQueueType: 1
+    - _RequireSplitLighting: 0
+    - _SrcBlend: 1
+    - _StartDis: 0
+    - _StencilRef: 0
+    - _StencilRefDepth: 0
+    - _StencilRefDistortionVec: 2
+    - _StencilRefGBuffer: 2
+    - _StencilRefMV: 32
+    - _StencilWriteMask: 3
+    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDistortionVec: 2
+    - _StencilWriteMaskGBuffer: 3
+    - _StencilWriteMaskMV: 32
+    - _SupportDecals: 1
+    - _SurfaceType: 1
+    - _TexFlowSpeed: 0.5
+    - _TexScale: 1.44
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
+    - _TransparentDepthPrepassEnable: 0
+    - _TransparentSortPriority: 0
+    - _TransparentWritingMotionVec: 0
+    - _TransparentZWrite: 0
+    - _USE_NOISE: 0
+    - _UseColorEnd: 0
+    - _UseShadowThreshold: 0
+    - _ZTestDepthEqualForOpaque: 4
+    - _ZTestGBuffer: 4
+    - _ZTestTransparent: 4
+    - _ZWrite: 0
+    m_Colors:
+    - _Color: {r: 1.9999999, g: 0, b: 0, a: 1}
+    - _ColorEnd: {r: 3.523293, g: 0, b: 0, a: 1}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FadePivort: {r: 0, g: 0, b: 0, a: 1}
+    - _UV00Pos: {r: 0, g: 0, b: 0, a: 0}
+    - _UV01Pos: {r: 0, g: 0, b: 0, a: 0}
+    - _UV10Pos: {r: 0, g: 0, b: 0, a: 0}
+    - _UV11Pos: {r: 0, g: 0, b: 0, a: 0}
+    - _UnlitColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

@@ -290,7 +290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
-  interactiveDis: 0.5
 --- !u!1 &1020542361
 GameObject:
   m_ObjectHideFlags: 0
