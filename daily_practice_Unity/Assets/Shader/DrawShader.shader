@@ -4,6 +4,10 @@ Shader "Unlit/DrawShader"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Color("DrawColor", Color) = (1, 0, 0, 0)
+        [HideinInspector]_Size("Size",Float)=1
+        [HideinInspector]_Strength("Strength",Float)=1
+        [HideinInspector] _Coordinate("DrawColor", Color) = (1, 0, 0, 0)
+
     }
     SubShader
     {
@@ -38,12 +42,14 @@ Shader "Unlit/DrawShader"
                 float4 vertex : SV_POSITION;
             };
 
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
-            float4 _Color;
-            uniform float4 _Coordinate;
-            uniform float _Strength;
-            uniform float _Size;
+            CBUFFER_START(UnityPerMaterial)
+                sampler2D _MainTex;
+                float4 _MainTex_ST;
+                float4 _Color;
+                uniform float4 _Coordinate;
+                uniform float _Strength;
+                uniform float _Size;
+            CBUFFER_END
 
             v2f vert(appdata v)
             {
